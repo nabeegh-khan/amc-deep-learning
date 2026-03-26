@@ -2,6 +2,8 @@
 
 A comparative study of CNN, LSTM, and hybrid architectures for classifying radio signal modulation types from raw I/Q data using the RadioML 2016.10a dataset.
 
+📄 **[Technical Report (PDF)](docs/AMC_Technical_Report.pdf)** | 📋 **[Project Summary (PDF)](docs/AMC_Project_Summary.pdf)**
+
 ## Results
 
 | Model | Overall Accuracy | High SNR (≥0 dB) | Low SNR (<0 dB) |
@@ -16,15 +18,17 @@ A comparative study of CNN, LSTM, and hybrid architectures for classifying radio
 
 ## Project Structure
 ```
-├── data/                   # Dataset (not tracked)
-├── notebooks/
-│   ├── 01_EDA.ipynb        # Exploratory data analysis
-│   ├── 02_CNN.ipynb        # CNN implementation
-│   ├── 03_LSTM.ipynb       # LSTM and Hybrid implementation
-│   └── 04_Comparison.ipynb # Model comparison
-├── models/                 # Saved model weights
-├── figures/                # Generated plots
-├── results/                # Experiment results (JSON)
+├── docs/
+│   ├── AMC_Technical_Report.pdf   # Full 5-page technical report
+│   └── AMC_Project_Summary.pdf    # 2-page executive summary
+├── data/                          # Dataset (not tracked)
+├── figures/                       # Generated plots
+├── models/                        # Saved model weights (not tracked)
+├── results/                       # Experiment results (JSON)
+├── 01_EDA.ipynb                   # Exploratory data analysis
+├── 02_CNN.ipynb                   # CNN implementation
+├── 03_LSTM.ipynb                  # LSTM and Hybrid implementation
+├── 04_Comparison.ipynb            # Model comparison
 ├── requirements.txt
 └── README.md
 ```
@@ -39,22 +43,6 @@ A comparative study of CNN, LSTM, and hybrid architectures for classifying radio
 - Sample shape: 2 × 128 (I/Q channels × time steps)
 
 Download: [Kaggle](https://www.kaggle.com/datasets/nolasthitnotomorrow/radioml2016-deepsigcom)
-
-## Setup
-```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/amc-deep-learning.git
-cd amc-deep-learning
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Download dataset from Kaggle and place in data/
-```
 
 ## Models
 
@@ -75,7 +63,23 @@ CNN feature extractor followed by LSTM. The CNN component enabled learning, but 
 
 3. **QAM confusion** — QAM16 and QAM64 are frequently confused even at high SNR due to similar constellation structures.
 
-4. **SNR threshold** — Below -10 dB, all models perform at random chance. Useful classification begins around -6 dB.
+4. **SNR threshold** — Below -10 dB, all models perform near random chance. Useful classification begins around -6 dB.
+
+## Setup
+```bash
+# Clone the repository
+git clone https://github.com/nabeegh-khan/amc-deep-learning.git
+cd amc-deep-learning
+
+# Create conda environment
+conda create -n amc python=3.10
+conda activate amc
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Download dataset from Kaggle and place in data/
+```
 
 ## References
 
