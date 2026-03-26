@@ -1,0 +1,5 @@
+data/*.pkl 
+data/*.tar.bz2 
+models/*.pt 
+.ipynb_checkpoints/ 
+data/*.npz 
